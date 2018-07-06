@@ -1,0 +1,66 @@
+.sidebar {
+  background-color: $darkGrey;
+}
+
+.server-toggles {
+  display: flex;
+}
+
+.server-toggles__toggle {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 10px;
+}
+
+.server-toggles__toggle__button {
+  border: 2px solid #fff;
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  position: relative;
+  background: none;
+
+  &[data-toggle-id="add"] {
+    &:before {
+      content: '';
+      border-left: 6px solid #fff;
+      position: absolute;
+      left: 50%;
+      margin-left: -3px;
+      height: 30px;
+      width: 6px;
+      top: 50%;
+      margin-top: -15px;
+    }
+    &:after {
+      content: '';
+      border-top: 6px solid #fff;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-top: -3px;
+      width: 30px;
+      height: 6px;
+      margin-left: -15px;
+    }
+  }
+
+  &[data-toggle-id="remove"] {
+    &:before {
+      content: '';
+      border-top: 6px solid #fff;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-top: -3px;
+      width: 30px;
+      height: 6px;
+      margin-left: -15px;
+    }
+  }
+}
+
+.server-toggles__toggle__title {
+  margin-top: 15px;
+}

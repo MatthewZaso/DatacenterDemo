@@ -6,7 +6,36 @@
   </head>
   <body>
     <section class="main">
-
+      <div class="sidebar">
+        <div class="server-toggles">
+          <div class="server-toggles__toggle">
+            <button class="server-toggles__toggle__button" data-toggle-id="add"></button>
+            <p class="label1 server-toggles__toggle__title">Add Server</p>
+          </div>
+          <div class="server-toggles__toggle">
+            <button class="server-toggles__toggle__button" data-toggle-id="remove"></button>
+            <p class="label1 server-toggles__toggle__title">Remove Server</p>
+          </div>
+        </div>
+        <div class="apps">
+          <p class="label1 label1--dark">Available Apps</p>
+          <ul class="apps__menu">
+            <li class="apps__app" data-app-id="hadoop">
+              <label class="header3">Hadoop</label>
+              <div class="apps__app__buttons">
+                <button class="apps__app-remove">-</button>
+                <button class="apps__app-add">+</button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="server-canvas">
+        <h1 class="header1">Server Canvas</h1>
+        <div class="server-canvas__container">
+          <div class="server-canvas__server"></div>
+        </div>
+      </div>
     </section>
   </body>
 </html>

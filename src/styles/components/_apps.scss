@@ -1,0 +1,38 @@
+.apps {
+  width: 100%;
+}
+
+.apps__app {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0 15px 35px;
+  position: relative;
+  border-bottom: 1px solid $lightGrey;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    border: 3px solid #000;
+    height: 100%;
+  }
+}
+
+.apps__app__buttons {
+  margin-right: -15px;
+}
+
+.apps__app-add,
+.apps__app-remove {
+  border: none;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: 400;
+  vertical-align: top;
+  padding: 0;
+  background: none;
+  color: #fff;
+}
