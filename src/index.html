@@ -19,41 +19,34 @@
         </div>
         <div class="apps">
           <p class="label1 label1--dark">Available Apps</p>
-          <ul class="apps__menu">
-            <li class="apps__app" data-app-id="hadoop">
-              <label class="header3">Hadoop</label>
-              <div class="apps__app__buttons">
-                <button class="apps__app-remove">-</button>
-                <button class="apps__app-add">+</button>
-              </div>
-            </li>
-          </ul>
+          <ul class="apps__menu"></ul>
         </div>
       </div>
       <div class="server-canvas">
         <h1 class="header1">Server Canvas</h1>
-        <div class="server-canvas__container">
-          <div class="server-canvas__server">
-            <div class="server-canvas__server__inner">
-              <div class="server-canvas__server-app">
-                <h2 class="header1">Hd</h2>
-                <p class="label1">Hadoop</p>
-                <p class="paragraph1">Added 32 min ago</p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="server-canvas__container"></div>
       </div>
     </section>
 
     <!-- Server Template -->
     <script id="server" type="text/x-lodash-template">
-      <div class="server-canvas__server" data-server-id="<%= id =>">
+      <div class="server-canvas__server" data-server-id="<%= id %>">
         <div class="server-canvas__server__inner">
           <div class="server-canvas__server-app">
           </div>
         </div>
       </div>
+    </script>
+
+    <!-- Toggle Template -->
+    <script id="toggle" type="text/x-lodash-template">
+      <li class="apps__app" data-app-id="<%= data.slug %>">
+        <label class="header3"><%= data.name %></label>
+        <div class="apps__app__buttons">
+          <button class="apps__app-remove">-</button>
+          <button class="apps__app-add">+</button>
+        </div>
+      </li>
     </script>
 
     <script src="/bundle.js"></script>

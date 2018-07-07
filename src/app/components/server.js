@@ -2,6 +2,9 @@ import { template } from 'lodash';
 import App from './app';
 
 const SETTINGS = {
+  ClassName: {
+    BASE: 'server-canvas__server'
+  },
   Id: {
     SERVER_TEMP: 'server'
   }
@@ -25,6 +28,10 @@ class Server {
     const tempFn = template(temp);
     const markup = tempFn({ id: this.id});
     this.container.innerHTML += markup;
+
+    const queryString = `.${SETTINGS.ClassName.BASE}[data-server-id="${this.id}"]`;
+    this.element = document.querySelector(queryString);
+    console.log(this.id);
   }
 
   addApp() {
@@ -34,7 +41,9 @@ class Server {
   }
 
   dispose() {
-    this.element.parentNode.removeChild(this.element);
+    const queryString = `.${SETTINGS.ClassName.BASE}[data-server-id="${this.id}"]`;
+    this.element = document.querySelector(queryString);
+    this.container.removeChild(this.element);
   }
 }
 

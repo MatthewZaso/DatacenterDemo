@@ -35,7 +35,7 @@ class Datacenter {
   }
 
   _renderFilters() {
-    AppData.map((item, index) => {
+    AppData.map((item) => {
       return new AppToggle(item);
     });
   }
@@ -51,9 +51,9 @@ class Datacenter {
     this.servers.push(new Server(id, this.container));
   }
 
-  removeServer() {
-    if(servers.length > 0) {
-      const server = servers.pop();
+  _removeServer() {
+    if(this.servers.length > 0) {
+      const server = this.servers.pop();
       server.dispose();
     }
   }
@@ -62,9 +62,9 @@ class Datacenter {
     const id = evt.target.getAttribute('data-toggle-id');
 
     if (id === 'add') {
-      this.renderServer();
+      this._renderServer();
     } else if (id === 'remove') {
-      this.removeServer();
+      this._removeServer();
     }
   }
 }

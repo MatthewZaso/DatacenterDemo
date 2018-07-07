@@ -6,8 +6,8 @@
   "scripts": {
     "start": "npm install && npm run build",
     "clean": "rm -rf dist",
-    "build": "npm run clean && webpack -d",
-    "build:watch": "npm run clean && webpack -d && webpack-dev-server",
+    "build": "npm run clean && webpack -d && cp src/index.html dist/index.html",
+    "build:watch": "npm run clean && webpack -d && cp src/index.html dist/index.html && webpack-dev-server",
     "build:prod": "webpack -p"
   },
   "author": "Matt Zaso (zaso.matthew@gmail.com)",
