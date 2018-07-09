@@ -19,11 +19,20 @@ This simple webpage is a visual demonstration the functionality of the mesospher
 * Webpack - Our project bundler
 * Webpack Dev Server - Simple server to host our project which includes hot reloading.
 
+### Developer notes
+I wanted to start with a project structure that would mimic how I would ideally setup a similar project in my day-to-day work. For this reason, I included a simple, but complete stack of tools like Webpack 4 and Sass and the dev-server. This was helpful while building out all of the components. For cross-browser compatability PostCSS and Babel were also included to mimic a production application. The directory and class structure matches other projects that I've worked on in the past, with sections broken down into smaller components with their encapsulated markup and logic. The data structure for this was simple, but nonetheless I separated it out into its own file and dynamically rendered the content so it could easily be updated. This was made easy with lodash templates. I like to use them because aside from being simplistic it keeps the markup in the HTML files. This project also makes use of some of my favorite new web features like css grid and flexbox.
+
+### Improvements
+* Pixel-perfect design - With more time I would clean up the design and match the exact colors and sizing.
+* Disabled states on toggles - I could add this logic into each component class to conditionally add disabled states
+* Timestamps on apps - "Added 2min ago" could be achieved by bringing in a lightweight library like Moment.js
+
+
 ## Installation
 #### 1. Clone the repository.
 #### 2. Install dependencies & build project
 ```bash
-$ npm start
+$ npm build:setup
 ```
 
 Development
@@ -46,4 +55,4 @@ The application can accessed using the URL the dev server displays in the termin
 
 Authors
 -------
-* [Matt Zaso]
+* [Matt Zaso](zaso.matthew@gmail.com)
