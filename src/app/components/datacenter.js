@@ -60,15 +60,24 @@ class Datacenter {
     const closestEmpty = this._closestEmptyServer();
     const closestSingle = this._closestSingleServer();
 
+
     if (closestEmpty) {
-      closestEmpty.addApp(new App(this._datasetById(id)));
+      const app1 = new App(this._datasetById(id), closestEmpty, Date.now());
+      closestEmpty.addApp(app1);
+      this.apps.push(app1);
     } else if (closestSingle) {
-      closestSingle.addApp(new App(this._datasetById(id)));
+      const app2 = new App(this._datasetById(id), closestSingle, Date.now());
+      closestSingle.addApp(app2);
+      this.apps.push(app2);
     }
   }
 
   _removeApp(id) {
+    const recentAppInstance = this.apps.slice(0).reverse().find(app => app.data.slug === id);
+    recentAppInstance.server.removeApp(recentAppInstance);
 
+    const indexToRemove = this.apps.indexOf(recentAppInstance);
+    this.apps.splice(indexToRemove, 1);
   }
 
   _closestEmptyServer() {
@@ -105,6 +114,10 @@ class Datacenter {
   _removeServer() {
     if(this.servers.length > 0) {
       const server = this.servers.pop();
+      server.apps.forEach((app) => {
+        const indexToRemove = this.apps.indexOf(app);
+        this.apps.splice(indexToRemove, 1);
+      });
       server.dispose();
     }
   }

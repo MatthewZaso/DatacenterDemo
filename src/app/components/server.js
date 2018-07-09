@@ -4,7 +4,8 @@ import App from './app';
 const SETTINGS = {
   ClassName: {
     BASE: 'server-canvas__server',
-    APP_CONTAINER: 'server-canvas__server__inner'
+    APP_CONTAINER: 'server-canvas__server__inner',
+    APP: 'server-canvas__server-app'
   },
   Id: {
     SERVER_TEMP: 'server'
@@ -39,6 +40,16 @@ class Server {
       this.apps.push(app);
       this.appContainer.insertAdjacentHTML('beforeend', app.markup);
     }
+  }
+
+  removeApp(instance) {
+    let instanceId = instance.instanceId;
+    const queryString = `.${SETTINGS.ClassName.APP}[data-instance-id="${instanceId}"]`;
+    const instanceEl = this.element.querySelector(queryString);
+    instanceEl.parentNode.removeChild(instanceEl);
+
+    const indexToRemove = this.apps.indexOf(instance);
+    this.apps.splice(indexToRemove, 1);
   }
 
   dispose() {

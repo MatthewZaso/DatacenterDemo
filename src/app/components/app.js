@@ -1,17 +1,18 @@
 import { template } from 'lodash';
 
 const SETTINGS = {
-  ClassName: {
-
-  },
   Id: {
     APP_TEMP: 'app'
   }
 }
 
 class App {
-  constructor(data) {
+  constructor(data, server, instanceId) {
     this.data = data;
+
+    this.server = server;
+
+    this.instanceId = instanceId;
 
     this.element = null;
 
@@ -22,7 +23,7 @@ class App {
     const temp = document.querySelector(`#${SETTINGS.Id.APP_TEMP}`).innerHTML;
     const tempFn = template(temp);
 
-    return tempFn({ data: this.data });
+    return tempFn({ data: this.data, instanceId: this.instanceId });
   }
 }
 
