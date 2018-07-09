@@ -34,7 +34,7 @@
 
 .apps__app-add,
 .apps__app-remove {
-  border: none;
+  border: 2px solid #fff;
   height: 30px;
   width: 30px;
   border-radius: 50%;
@@ -48,21 +48,51 @@
 
 .apps__app--hadoop {
   &:before { background-color: $hadoop; }
-  .apps__app-add { background: linear-gradient(135deg, $hadoop 0%, $hadoop2 100%); }
+
+  .apps__app-add {
+    background: linear-gradient(135deg, $hadoop 0%, $hadoop2 100%);
+    border: none;
+  }
 }
 .apps__app--rails {
   &:before { background-color: $rails; }
-  .apps__app-add { background: linear-gradient(135deg, $rails 0%, $rails2 100%); }
+
+  .apps__app-add {
+    background: linear-gradient(135deg, $rails 0%, $rails2 100%);
+    border: none;
+  }
 }
 .apps__app--chronos {
   &:before { background-color: $chronos; }
-  .apps__app-add { background: linear-gradient(135deg, $chronos 0%, $chronos2 100%); }
+
+  .apps__app-add {
+    background: linear-gradient(135deg, $chronos 0%, $chronos2 100%);
+    border: none;
+  }
 }
 .apps__app--storm {
   &:before { background-color: $storm; }
-  .apps__app-add { background: linear-gradient(135deg, $storm 0%, $storm2 100%); }
+
+  .apps__app-add {
+    background: linear-gradient(135deg, $storm 0%, $storm2 100%);
+    border: none;
+  }
 }
 .apps__app--spark {
   &:before { background-color: $spark; }
-  .apps__app-add { background: linear-gradient(135deg, $spark 0%, $spark2 100%); }
+
+  .apps__app-add {
+    background: linear-gradient(135deg, $spark 0%, $spark2 100%);
+    border: none;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .apps {
+    margin-top: 20px;
+  }
+
+  .apps__app__buttons {
+    margin-right: 15px;
+  }
 }

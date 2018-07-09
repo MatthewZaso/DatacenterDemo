@@ -12,3 +12,16 @@
   grid-gap: 20px;
   padding: 10px;
 }
+
+
+@media only screen and (max-width:1024px) {
+  .server-canvas__container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .server-canvas__container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
