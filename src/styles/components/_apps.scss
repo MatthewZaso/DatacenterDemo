@@ -17,6 +17,7 @@
   padding: 15px 0 15px 35px;
   position: relative;
   border-bottom: 1px solid $lightGrey;
+  background: #000;
 
   &:before {
     content: '';
@@ -25,6 +26,10 @@
     top: 0;
     width: 4px;
     height: 100%;
+  }
+
+  &:last-of-type {
+    border-bottom: none;
   }
 }
 

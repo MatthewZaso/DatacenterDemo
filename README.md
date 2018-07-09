@@ -6,7 +6,7 @@ A simulation of the mesosphere data manager.
 #### 1. Clone the repository.
 #### 2. Install dependencies & build project
 ```bash
-$ npm start
+$ npm run build:setup
 ```
 
 Development

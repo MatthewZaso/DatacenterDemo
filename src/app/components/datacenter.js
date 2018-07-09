@@ -126,10 +126,12 @@ class Datacenter {
    */
   _removeApp(id) {
     const recentAppInstance = this.apps.slice(0).reverse().find(app => app.data.slug === id);
-    recentAppInstance.server.removeApp(recentAppInstance);
+    if (recentAppInstance) {
+      recentAppInstance.server.removeApp(recentAppInstance);
 
-    const indexToRemove = this.apps.indexOf(recentAppInstance);
-    this.apps.splice(indexToRemove, 1);
+      const indexToRemove = this.apps.indexOf(recentAppInstance);
+      this.apps.splice(indexToRemove, 1);
+    }
   }
 
   /**
