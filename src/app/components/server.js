@@ -3,7 +3,8 @@ import App from './app';
 
 const SETTINGS = {
   ClassName: {
-    BASE: 'server-canvas__server'
+    BASE: 'server-canvas__server',
+    APP_CONTAINER: 'server-canvas__server__inner'
   },
   Id: {
     SERVER_TEMP: 'server'
@@ -16,33 +17,31 @@ class Server {
 
     this.container = container;
 
-    this.element = null;
+    this.render();
+
+    const queryString = `.${SETTINGS.ClassName.BASE}[data-server-id="${this.id}"]`;
+    this.element = document.querySelector(queryString);
+
+    this.appContainer = this.element.querySelector(`.${SETTINGS.ClassName.APP_CONTAINER}`);
 
     this.apps = [];
-
-    this.render();
   }
 
   render() {
     const temp = document.querySelector(`#${SETTINGS.Id.SERVER_TEMP}`).innerHTML;
     const tempFn = template(temp);
     const markup = tempFn({ id: this.id});
-    this.container.innerHTML += markup;
-
-    const queryString = `.${SETTINGS.ClassName.BASE}[data-server-id="${this.id}"]`;
-    this.element = document.querySelector(queryString);
-    console.log(this.id);
+    this.container.insertAdjacentHTML('beforeend', markup);
   }
 
-  addApp() {
+  addApp(app) {
     if(this.apps.length < 2) {
-      this.apps.push(new App());
+      this.apps.push(app);
+      this.appContainer.insertAdjacentHTML('beforeend', app.markup);
     }
   }
 
   dispose() {
-    const queryString = `.${SETTINGS.ClassName.BASE}[data-server-id="${this.id}"]`;
-    this.element = document.querySelector(queryString);
     this.container.removeChild(this.element);
   }
 }

@@ -8,6 +8,14 @@
   border-radius: 5px;
 }
 
+.server-canvas__server-app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: space-evenly;
+}
+
 .server-canvas__server__inner {
   position: absolute;
   top: 0;
@@ -15,3 +23,9 @@
   bottom: 0;
   left: 0;
 }
+
+.server-canvas__server-app.server-canvas__server-app--hadoop { background: linear-gradient(135deg, $hadoop 0%, $hadoop2 100%); }
+.server-canvas__server-app.server-canvas__server-app--rails { background: linear-gradient(135deg, $rails 0%, $rails2 100%); }
+.server-canvas__server-app.server-canvas__server-app--chronos { background: linear-gradient(135deg, $chronos 0%, $chronos2 100%); }
+.server-canvas__server-app.server-canvas__server-app--storm { background: linear-gradient(135deg, $storm 0%, $storm2 100%); }
+.server-canvas__server-app.server-canvas__server-app--spark { background: linear-gradient(135deg, $spark 0%, $spark2 100%); }

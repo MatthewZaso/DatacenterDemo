@@ -3,7 +3,9 @@
 }
 
 .server-toggles {
+  margin-top: 65px;
   display: flex;
+  justify-content: center;
 }
 
 .server-toggles__toggle {
@@ -20,6 +22,7 @@
   width: 60px;
   position: relative;
   background: none;
+  cursor: pointer;
 
   &[data-toggle-id="add"] {
     &:before {
@@ -28,10 +31,10 @@
       position: absolute;
       left: 50%;
       margin-left: -3px;
-      height: 30px;
+      height: 26px;
       width: 6px;
       top: 50%;
-      margin-top: -15px;
+      margin-top: -13px;
     }
     &:after {
       content: '';
@@ -40,9 +43,9 @@
       left: 50%;
       top: 50%;
       margin-top: -3px;
-      width: 30px;
+      width: 26px;
       height: 6px;
-      margin-left: -15px;
+      margin-left: -13px;
     }
   }
 
@@ -54,13 +57,13 @@
       left: 50%;
       top: 50%;
       margin-top: -3px;
-      width: 30px;
+      width: 26px;
       height: 6px;
-      margin-left: -15px;
+      margin-left: -13px;
     }
   }
 }
 
 .server-toggles__toggle__title {
-  margin-top: 15px;
+  margin-top: 20px;
 }

@@ -18,12 +18,12 @@
           </div>
         </div>
         <div class="apps">
-          <p class="label1 label1--dark">Available Apps</p>
+          <p class="apps__title label1 label1--dark">Available Apps</p>
           <ul class="apps__menu"></ul>
         </div>
       </div>
       <div class="server-canvas">
-        <h1 class="header1">Server Canvas</h1>
+        <h1 class="server-canvas__title header1">Server Canvas</h1>
         <div class="server-canvas__container"></div>
       </div>
     </section>
@@ -32,15 +32,22 @@
     <script id="server" type="text/x-lodash-template">
       <div class="server-canvas__server" data-server-id="<%= id %>">
         <div class="server-canvas__server__inner">
-          <div class="server-canvas__server-app">
-          </div>
         </div>
+      </div>
+    </script>
+
+    <!-- App Template -->
+    <script id="app" type="text/x-lodash-template">
+      <div class="server-canvas__server-app server-canvas__server-app--<%= data.slug %>">
+        <h1 class="header1"><%= data.abbreviation %></h1>
+        <p class="header2"><%= data.name %></p>
+        <p class="paragraph1">Added just now</p>
       </div>
     </script>
 
     <!-- Toggle Template -->
     <script id="toggle" type="text/x-lodash-template">
-      <li class="apps__app" data-app-id="<%= data.slug %>">
+      <li class="apps__app apps__app--<%= data.slug %>" data-app-id="<%= data.slug %>">
         <label class="header3"><%= data.name %></label>
         <div class="apps__app__buttons">
           <button class="apps__app-remove">-</button>

@@ -1,5 +1,14 @@
 .apps {
   width: 100%;
+  margin-top: 67%;
+}
+
+.apps__menu {
+  padding: 20px 0;
+}
+
+.apps__title {
+  margin: 0 35px;
 }
 
 .apps__app {
@@ -14,7 +23,7 @@
     position: absolute;
     left: 0;
     top: 0;
-    border: 3px solid #000;
+    width: 4px;
     height: 100%;
   }
 }
@@ -35,4 +44,25 @@
   padding: 0;
   background: none;
   color: #fff;
+}
+
+.apps__app--hadoop {
+  &:before { background-color: $hadoop; }
+  .apps__app-add { background: linear-gradient(135deg, $hadoop 0%, $hadoop2 100%); }
+}
+.apps__app--rails {
+  &:before { background-color: $rails; }
+  .apps__app-add { background: linear-gradient(135deg, $rails 0%, $rails2 100%); }
+}
+.apps__app--chronos {
+  &:before { background-color: $chronos; }
+  .apps__app-add { background: linear-gradient(135deg, $chronos 0%, $chronos2 100%); }
+}
+.apps__app--storm {
+  &:before { background-color: $storm; }
+  .apps__app-add { background: linear-gradient(135deg, $storm 0%, $storm2 100%); }
+}
+.apps__app--spark {
+  &:before { background-color: $spark; }
+  .apps__app-add { background: linear-gradient(135deg, $spark 0%, $spark2 100%); }
 }

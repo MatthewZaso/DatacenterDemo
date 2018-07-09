@@ -85,6 +85,7 @@ body,
 .header3 {
   color: #fff;
   font-size: 15px;
+  line-height: 30px;
   font-weight: 400;
   font-family: 'Arial', Helvetica, sans-serif; }
 
@@ -106,9 +107,13 @@ body,
   background-color: #1e1e1e; }
 
 .server-toggles {
+  margin-top: 65px;
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex; }
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
 
 .server-toggles__toggle {
   display: -webkit-box;
@@ -129,17 +134,18 @@ body,
   height: 60px;
   width: 60px;
   position: relative;
-  background: none; }
+  background: none;
+  cursor: pointer; }
   .server-toggles__toggle__button[data-toggle-id="add"]:before {
     content: '';
     border-left: 6px solid #fff;
     position: absolute;
     left: 50%;
     margin-left: -3px;
-    height: 30px;
+    height: 26px;
     width: 6px;
     top: 50%;
-    margin-top: -15px; }
+    margin-top: -13px; }
   .server-toggles__toggle__button[data-toggle-id="add"]:after {
     content: '';
     border-top: 6px solid #fff;
@@ -147,9 +153,9 @@ body,
     left: 50%;
     top: 50%;
     margin-top: -3px;
-    width: 30px;
+    width: 26px;
     height: 6px;
-    margin-left: -15px; }
+    margin-left: -13px; }
   .server-toggles__toggle__button[data-toggle-id="remove"]:before {
     content: '';
     border-top: 6px solid #fff;
@@ -157,15 +163,22 @@ body,
     left: 50%;
     top: 50%;
     margin-top: -3px;
-    width: 30px;
+    width: 26px;
     height: 6px;
-    margin-left: -15px; }
+    margin-left: -13px; }
 
 .server-toggles__toggle__title {
-  margin-top: 15px; }
+  margin-top: 20px; }
 
 .apps {
-  width: 100%; }
+  width: 100%;
+  margin-top: 67%; }
+
+.apps__menu {
+  padding: 20px 0; }
+
+.apps__title {
+  margin: 0 35px; }
 
 .apps__app {
   display: -webkit-box;
@@ -182,7 +195,7 @@ body,
     position: absolute;
     left: 0;
     top: 0;
-    border: 3px solid #000;
+    width: 4px;
     height: 100%; }
 
 .apps__app__buttons {
@@ -201,11 +214,47 @@ body,
   background: none;
   color: #fff; }
 
+.apps__app--hadoop:before {
+  background-color: #f707a5; }
+
+.apps__app--hadoop .apps__app-add {
+  background: linear-gradient(135deg, #f707a5 0%, #c10eca 100%); }
+
+.apps__app--rails:before {
+  background-color: #3c2dee; }
+
+.apps__app--rails .apps__app-add {
+  background: linear-gradient(135deg, #3c2dee 0%, #6224e3 100%); }
+
+.apps__app--chronos:before {
+  background-color: #01aafd; }
+
+.apps__app--chronos .apps__app-add {
+  background: linear-gradient(135deg, #01aafd 0%, #008be9 100%); }
+
+.apps__app--storm:before {
+  background-color: #2ce19c; }
+
+.apps__app--storm .apps__app-add {
+  background: linear-gradient(135deg, #2ce19c 0%, #60e531 100%); }
+
+.apps__app--spark:before {
+  background-color: #69fa1a; }
+
+.apps__app--spark .apps__app-add {
+  background: linear-gradient(135deg, #69fa1a 0%, #63e92b 100%); }
+
+.server-canvas {
+  padding: 35px; }
+
+.server-canvas__title {
+  margin-bottom: 35px; }
+
 .server-canvas__container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 20px;
-  padding: 30px; }
+  padding: 10px; }
 
 .server-canvas__server {
   position: relative;
@@ -216,10 +265,41 @@ body,
   background-color: #1e1e1e;
   border-radius: 5px; }
 
+.server-canvas__server-app {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly; }
+
 .server-canvas__server__inner {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0; }
+
+.server-canvas__server-app.server-canvas__server-app--hadoop {
+  background: linear-gradient(135deg, #f707a5 0%, #c10eca 100%); }
+
+.server-canvas__server-app.server-canvas__server-app--rails {
+  background: linear-gradient(135deg, #3c2dee 0%, #6224e3 100%); }
+
+.server-canvas__server-app.server-canvas__server-app--chronos {
+  background: linear-gradient(135deg, #01aafd 0%, #008be9 100%); }
+
+.server-canvas__server-app.server-canvas__server-app--storm {
+  background: linear-gradient(135deg, #2ce19c 0%, #60e531 100%); }
+
+.server-canvas__server-app.server-canvas__server-app--spark {
+  background: linear-gradient(135deg, #69fa1a 0%, #63e92b 100%); }
 

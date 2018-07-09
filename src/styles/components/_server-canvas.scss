@@ -1,6 +1,14 @@
+.server-canvas {
+  padding: 35px;
+}
+
+.server-canvas__title {
+  margin-bottom: 35px;
+}
+
 .server-canvas__container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 20px;
-  padding: 30px;
+  padding: 10px;
 }
