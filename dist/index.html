@@ -30,7 +30,7 @@
 
     <!-- Server Template -->
     <script id="server" type="text/x-lodash-template">
-      <div class="server-canvas__server" data-server-id="<%= id %>">
+      <div class="server-canvas__server" data-server-id="{{ id }}">
         <div class="server-canvas__server__inner">
         </div>
       </div>
@@ -38,17 +38,17 @@
 
     <!-- App Template -->
     <script id="app" type="text/x-lodash-template">
-      <div class="server-canvas__server-app server-canvas__server-app--<%= data.slug %>" data-instance-id="<%= instanceId %>">
-        <h1 class="server-canvas__server-app__abbr header1"><%= data.abbreviation %></h1>
-        <p class="header2"><%= data.name %></p>
+      <div class="server-canvas__server-app server-canvas__server-app--{{ data.slug }}" data-instance-id="{{ instanceId }}">
+        <h1 class="server-canvas__server-app__abbr header1">{{ data.abbreviation }}</h1>
+        <p class="header2">{{ data.name }}</p>
         <p class="paragraph1">Added now</p>
       </div>
     </script>
 
     <!-- Toggle Template -->
     <script id="toggle" type="text/x-lodash-template">
-      <li class="apps__app apps__app--<%= data.slug %>" data-app-id="<%= data.slug %>">
-        <label class="header3"><%= data.name %></label>
+      <li class="apps__app apps__app--{{ data.slug }}" data-app-id="{{ data.slug }}">
+        <label class="header3">{{ data.name }}</label>
         <div class="apps__app__buttons">
           <button class="apps__app-remove">-</button>
           <button class="apps__app-add">+</button>

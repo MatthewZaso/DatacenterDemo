@@ -58,8 +58,8 @@ const options = {
     ]
   },
   plugins: [
-    miniCSSPlugin
-    //HTMLPlugin
+    miniCSSPlugin,
+    HTMLPlugin
   ],
   devServer: {
     contentBase: DIST_DIR,
