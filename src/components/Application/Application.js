@@ -14,7 +14,7 @@ class Application extends Component {
 
   render() {
     return (
-      <div className="server-canvas__server-app server-canvas__server-app--{ this.props.slug }" data-instance-id="{ this.props.instanceId }">
+      <div className={`server-canvas__server-app server-canvas__server-app--${this.props.slug}`} data-instance-id={ this.props.instanceId }>
         <h1 className="server-canvas__server-app__abbr header1">{ this.props.abbreviation }</h1>
         <p className="header2">{ this.props.name }</p>
         <p className="paragraph1">Added now</p>

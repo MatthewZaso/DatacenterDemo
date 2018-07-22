@@ -7,80 +7,24 @@
 import React, { Component } from 'react';
 import Server from './components/Server/Server';
 import AppToggle from './components/AppToggle/AppToggle';
-import Application from './components/Application/Application';
+import { connect } from 'react-redux';
+import { addServer, removeServer } from './actions/actions';
 import AppData from './data/apps';
-
-const SETTINGS = {
-  ClassName: {
-    CONTAINER: 'server-canvas__container',
-    SERVER_TOGGLE: 'server-toggles',
-    TOGGLE_CONTAINER: 'apps__menu',
-    APP_TOGGLE: 'apps__app'
-  },
-  Id: {
-    SERVER_TEMP: 'server'
-  },
-  INITIAL_SERVERS: 4
-}
 
 class Datacenter extends Component {
   constructor(props) {
     super(props);
 
-    /**
-     * An array of all server instances currently active
-     * @type {Array<Server>}
-     * @public
-     */
-    this.servers = Array.from({ length: SETTINGS.INITIAL_SERVERS }, (item, i) => i);
-
-    this.onToggleClick = this._onToggleClick.bind(this);
+    this._serverAddClick = this._onServerAddClick.bind(this);
+    this._serverRemoveClick = this._onServerRemoveClick.bind(this);
   }
 
-  /**
-   * Creates an initial set of empty servers for use.
-   * @private
-   */
-  _createInitialServers() {
-    for (let i = 0; i < SETTINGS.INITIAL_SERVERS; i++) {
-      this._renderServer();
-    }
+  _onServerAddClick(evt) {
+    this.props.addServer(this.props.servers.length+1);
   }
 
-  /**
-   * Binds all listeners to the DOM. Listeners are stored as properties for
-   * easy disposal.
-   * @private
-   */
-  _bindListeners() {
-    this.serverToggles.addEventListener('click', this.onToggleClick);
-  }
-
-  /**
-   * Delegated event listener for the server toggles
-   * @param {Event} evt The click event.
-   * @private
-   */
-  _onToggleClick(evt) {
-    const id = evt.target.getAttribute('data-toggle-id');
-
-    if (id === 'add') {
-      this._renderServer();
-    } else if (id === 'remove') {
-      this._removeServer();
-    }
-  }
-
-  /** React */
-  componentDidMount() {
-    /**
-     * The container holding the server toggles
-     * @type {Element}
-     * @public
-     */
-    this.serverToggles = document.querySelector(`.${SETTINGS.ClassName.SERVER_TOGGLE}`);
-
-    this._bindListeners();
+  _onServerRemoveClick(evt) {
+    this.props.removeServer();
   }
 
   render() {
@@ -89,11 +33,11 @@ class Datacenter extends Component {
         <div className="sidebar">
           <div className="server-toggles">
             <div className="server-toggles__toggle">
-              <button className="server-toggles__toggle__button" data-toggle-id="add"></button>
+              <button className="server-toggles__toggle__button" onClick={this._serverAddClick} data-toggle-id="add"></button>
               <p className="label1 server-toggles__toggle__title">Add Server</p>
             </div>
             <div className="server-toggles__toggle">
-              <button className="server-toggles__toggle__button" data-toggle-id="remove"></button>
+              <button className="server-toggles__toggle__button" onClick={this._serverRemoveClick} data-toggle-id="remove"></button>
               <p className="label1 server-toggles__toggle__title">Destroy</p>
             </div>
           </div>
@@ -101,7 +45,7 @@ class Datacenter extends Component {
             <p className="apps__title label1 label1--dark">Available Apps</p>
             <ul className="apps__menu">
               {AppData.map((data, index) => {
-                return <AppToggle slug={data.slug} name={data.name} key={index} />
+                return <AppToggle data={data} key={index} />
               })}
             </ul>
           </div>
@@ -109,8 +53,8 @@ class Datacenter extends Component {
         <div className="server-canvas">
           <h1 className="server-canvas__title header1">Server Canvas</h1>
           <div className="server-canvas__container">
-            {this.servers.map((id, index) => {
-              return <Server id={id} key={index} />
+            {this.props.servers.map((data, index) => {
+              return <Server id={data.id} key={index} />
             })}
           </div>
         </div>
@@ -119,4 +63,23 @@ class Datacenter extends Component {
   }
 }
 
-export default Datacenter;
+/** Redux */
+const mapStateToProps = state => {
+  return {
+    servers: state.servers,
+  };
+};
+
+/** Redux */
+const mapDispatchToProps = dispatch => {
+  return {
+    addServer: (id) => {
+      dispatch(addServer(id));
+    },
+    removeServer: () => {
+      dispatch(removeServer());
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Datacenter);
